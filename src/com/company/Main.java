@@ -49,10 +49,10 @@ public class Main {
                 sc.nextLine();
             }
         }
-        System.out.println("You choosed variant -"+typeChoose+ " here are your exams :");
+        System.out.println("You choosed variant "+typeChoose+ " here are your exams :");
 
-        ArrayList<Integer> listInt1 = new ArrayList<>();
-        ArrayList<Integer> listInt2 = new ArrayList<>();
+        ArrayList<Integer> aListInt1 = new ArrayList<>();
+        ArrayList<Integer> aListInt2 = new ArrayList<>();
         ArrayList<String> chars = new ArrayList<>();
         chars.add("+");
         chars.add("-");
@@ -61,25 +61,32 @@ public class Main {
 
         if(typeChoose.equals(a)){
             for (int i = 0; i < amountOfExamples; i++){
-                int num1 = rn.nextInt(2000)-1000;
-                listInt1.add(num1);
+                int aNum1 = rn.nextInt(2000)-1000;
+                aListInt1.add(aNum1);
             }
             for (int j = 0; j< amountOfExamples; j++){
-                int num2 = rn.nextInt(2000)-1000;
-                listInt2.add(num2);
+                int aNum2 = rn.nextInt(2000)-1000;
+                aListInt2.add(aNum2);
             }
-
-            for (int k = 0; k < amountOfExamples; k++){
-                int charNum = rn.nextInt(3);
-            }
-            for (int l = 0; l < amountOfExamples; l++){
-                System.out.println(listInt1.get(l)+chars.get(l)+listInt2.get(l)+" = ");
-            }
-        } else if (typeChoose.equals(b)) {
-
-        } else if (typeChoose.equals(c)) {
-
         }
+        ArrayList<Integer> bListInt1 = new ArrayList<>();
+        ArrayList<Integer> bListInt2 = new ArrayList<>();
+
+        if(typeChoose.equals(b)){
+            for (int l = 0; l<amountOfExamples; l++){
+                int bNum1 = rn.nextInt(100);
+                System.out.println(bNum1);
+        }
+        }
+
+        for (int k = 0; k<amountOfExamples; k++){
+            int sum = aListInt1.get(k)+aListInt2.get(k);
+            ArrayList<Integer> listResult = new ArrayList<>();
+            System.out.println(sum);
+
+            }
+
+
 
 
     }
