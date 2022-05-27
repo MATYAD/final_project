@@ -11,14 +11,21 @@ public class Main {
 
         int amountOfExamples = 0;
         String typeChoose = null;
+        String difficultyChoose = null;
 
-        boolean tryAgain1 = true;
+        boolean check1 = true;
+        boolean check2 = true;
+        boolean check3 = true;
 
         String a = "a";
         String b = "b";
         String c = "c";
 
-        while (tryAgain1) {
+        String ez = "e";
+        String md = "m";
+        String hd = "h";
+
+        while (check1) {
             System.out.println("""
                     Choose type of exam by pressing a,b or c:
                      a) Addition, Subtraction, Multiplication, Division of integers
@@ -26,72 +33,69 @@ public class Main {
                      c) Conversions between number systems - decimal, binary and hexadecimal""");
             typeChoose = sc.nextLine();
 
-            if (typeChoose.equals(a)) {
-                tryAgain1 = false;
+            if (typeChoose.equalsIgnoreCase(a)) {
+                check1 = false;
             }
-            if (typeChoose.equals(b)) {
-                tryAgain1 = false;
+            if (typeChoose.equalsIgnoreCase(b)) {
+                check1 = false;
             }
-            if (typeChoose.equals(c)) {
-                tryAgain1 = false;
+            if (typeChoose.equalsIgnoreCase(c)) {
+                check1 = false;
+            }
+        }
+        while (check3) {
+            System.out.println("""
+                Choose the difficulty of exams:
+                e) Easy
+                m) Medium
+                h) Hard""");
+            difficultyChoose = sc.nextLine();
+
+            if (difficultyChoose.equalsIgnoreCase(ez)){
+                check3 = false;
+            }
+            if (difficultyChoose.equalsIgnoreCase(md)){
+                check3 = false;
+            }
+            if (difficultyChoose.equalsIgnoreCase(hd)){
+                check3 = false;
             }
         }
 
-        boolean check = true;
-        while(check) {
+        while(check2) {
             try{
                 System.out.println("How many examples do you want?");
                 amountOfExamples = sc.nextInt();
-                check=false;
+                check2=false;
             }catch(InputMismatchException e){
                 System.out.println("It must be number!");
-                check = true;
+                check2 = true;
                 sc.nextLine();
             }
         }
         System.out.println("You choosed variant "+typeChoose+ " here are your exams :");
 
-        ArrayList<Integer> aListInt1 = new ArrayList<>();
-        ArrayList<Integer> aListInt2 = new ArrayList<>();
-        ArrayList<String> chars = new ArrayList<>();
-        chars.add("+");
-        chars.add("-");
-        chars.add("*");
-        chars.add("/");
+        ArrayList<Integer> listEasy = new ArrayList<>();
+        ArrayList<String> listChar = new ArrayList<>();
+        listChar.add("+");
+        listChar.add("-");
+        listChar.add("*");
+        listChar.add("/");
 
-        if(typeChoose.equals(a)){
-            for (int i = 0; i < amountOfExamples; i++){
-                int aNum1 = rn.nextInt(2000)-1000;
-                aListInt1.add(aNum1);
-            }
-            for (int j = 0; j< amountOfExamples; j++){
-                int aNum2 = rn.nextInt(2000)-1000;
-                aListInt2.add(aNum2);
-            }
+        for (int i = 0; i<amountOfExamples; i++){
+            int num1 = rn.nextInt(100);
+            listEasy.add(num1);
+            System.out.print(num1+" ");
+            int rnChar = rn.nextInt(3);
+            System.out.print(listChar.get(rnChar));
+            int num2 = rn.nextInt(100);
+            listEasy.add(num2);
+            System.out.print(" "+num2+" "+ "=");
+            System.out.println();
         }
-        ArrayList<Integer> bListInt1 = new ArrayList<>();
-        ArrayList<Integer> bListInt2 = new ArrayList<>();
-
-        if(typeChoose.equals(b)){
-            for (int l = 0; l<amountOfExamples; l++){
-                int bNum1 = rn.nextInt(100);
-                System.out.println(bNum1);
-        }
-        }
-
-        for (int k = 0; k<amountOfExamples; k++){
-            int sum = aListInt1.get(k)+aListInt2.get(k);
-            ArrayList<Integer> listResult = new ArrayList<>();
-            System.out.println(sum);
-
-            }
 
 
 
 
     }
-
-
 }
-
-
