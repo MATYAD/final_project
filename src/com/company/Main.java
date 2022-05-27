@@ -45,57 +45,78 @@ public class Main {
         }
         while (check3) {
             System.out.println("""
-                Choose the difficulty of exams:
-                e) Easy
-                m) Medium
-                h) Hard""");
+                    Choose the difficulty of exams:
+                    e) Easy
+                    m) Medium
+                    h) Hard""");
             difficultyChoose = sc.nextLine();
 
-            if (difficultyChoose.equalsIgnoreCase(ez)){
+            if (difficultyChoose.equalsIgnoreCase(ez)) {
                 check3 = false;
             }
-            if (difficultyChoose.equalsIgnoreCase(md)){
+            if (difficultyChoose.equalsIgnoreCase(md)) {
                 check3 = false;
             }
-            if (difficultyChoose.equalsIgnoreCase(hd)){
+            if (difficultyChoose.equalsIgnoreCase(hd)) {
                 check3 = false;
             }
         }
 
-        while(check2) {
-            try{
+        while (check2) {
+            try {
                 System.out.println("How many examples do you want?");
                 amountOfExamples = sc.nextInt();
-                check2=false;
-            }catch(InputMismatchException e){
+                check2 = false;
+            } catch (InputMismatchException e) {
                 System.out.println("It must be number!");
                 check2 = true;
                 sc.nextLine();
             }
         }
-        System.out.println("You choosed variant "+typeChoose+ " here are your exams :");
+        System.out.println("You choosed variant " + typeChoose + " here are your exams :");
 
-        ArrayList<Integer> listEasy = new ArrayList<>();
+        ArrayList<Integer> listEasyIntegers = new ArrayList<>();
         ArrayList<String> listChar = new ArrayList<>();
         listChar.add("+");
         listChar.add("-");
         listChar.add("*");
         listChar.add("/");
 
-        for (int i = 0; i<amountOfExamples; i++){
-            int num1 = rn.nextInt(100);
-            listEasy.add(num1);
-            System.out.print(num1+" ");
-            int rnChar = rn.nextInt(3);
-            System.out.print(listChar.get(rnChar));
-            int num2 = rn.nextInt(100);
-            listEasy.add(num2);
-            System.out.print(" "+num2+" "+ "=");
-            System.out.println();
+        int rnChar;
+
+        if (typeChoose.equals(a)) {
+            for (int i = 0; i < amountOfExamples; i++) {
+                int num1 = rn.nextInt(100);
+                listEasyIntegers.add(num1);
+                System.out.print(num1 + " ");
+                rnChar = rn.nextInt(4);
+                System.out.print(listChar.get(rnChar));
+                int num2 = rn.nextInt(100);
+                listEasyIntegers.add(num2);
+                System.out.print(" " + num2 + " " + "=");
+                System.out.println();
+            }
         }
+        ArrayList<Integer> listEasyFraction = new ArrayList<>();
+
+        if (typeChoose.equals(b)) {
+            for (int j = 0; j < amountOfExamples; j++) {
+                int numerator1 = rn.nextInt(50);
+                listEasyFraction.add(numerator1);
+                int denominator1 = rn.nextInt(100)+1;
+                listEasyFraction.add(denominator1);
+                System.out.print(numerator1+"/"+denominator1+" ");
+                rnChar = rn.nextInt(4);
+                System.out.print(listChar.get(rnChar));
+                int numerator2 = rn.nextInt(50);
+                listEasyFraction.add(numerator2);
+                int denominator2 = rn.nextInt(100)+1;
+                listEasyFraction.add(denominator2);
+                System.out.print(" "+numerator2+"/"+denominator2+" "+"=");
+                System.out.println();
+            }
 
 
-
-
+        }
     }
 }
