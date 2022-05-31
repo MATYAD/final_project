@@ -16,14 +16,11 @@ public class Main {
         boolean check1 = true;
         boolean check2 = true;
         boolean check3 = true;
+        boolean check4 = true;
 
         String a = "a";
         String b = "b";
         String c = "c";
-
-        String ez = "e";
-        String md = "m";
-        String hd = "h";
 
         while (check1) {
             System.out.println("""
@@ -41,24 +38,6 @@ public class Main {
             }
             if (typeChoose.equalsIgnoreCase(c)) {
                 check1 = false;
-            }
-        }
-        while (check3) {
-            System.out.println("""
-                    Choose the difficulty of exams:
-                    e) Easy
-                    m) Medium
-                    h) Hard""");
-            difficultyChoose = sc.nextLine();
-
-            if (difficultyChoose.equalsIgnoreCase(ez)) {
-                check3 = false;
-            }
-            if (difficultyChoose.equalsIgnoreCase(md)) {
-                check3 = false;
-            }
-            if (difficultyChoose.equalsIgnoreCase(hd)) {
-                check3 = false;
             }
         }
 
@@ -83,6 +62,8 @@ public class Main {
         listChar.add("/");
 
         int rnChar;
+        int result = 0;
+        int answer = 0;
 
         if (typeChoose.equals(a)) {
             for (int i = 0; i < amountOfExamples; i++) {
@@ -94,6 +75,29 @@ public class Main {
                 int num2 = rn.nextInt(100);
                 listEasyIntegers.add(num2);
                 System.out.print(" " + num2 + " " + "=");
+                if (rnChar == 0){
+                    result = num1 + num2;
+                }
+                if (rnChar == 1){
+                    result = num1 - num2;
+                }
+                if (rnChar == 2){
+                    result = num1 * num2;
+                }
+                if (rnChar == 3){
+                    result = num1 / num2;
+                }
+                while(check4){
+                    try {
+                        answer = sc.nextInt();
+                        check4 = false;
+                    }catch (InputMismatchException e) {
+                        System.out.println("It must be number!");
+                        check4 = true;
+                        sc.nextLine();
+                    }
+                }
+                System.out.println(" "+result);
                 System.out.println();
             }
         }
