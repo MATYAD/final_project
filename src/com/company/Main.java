@@ -72,7 +72,7 @@ public class Main {
                 System.out.print(num1 + " ");
                 rnChar = rn.nextInt(4);
                 System.out.print(listChar.get(rnChar));
-                int num2 = rn.nextInt(100);
+                int num2 = rn.nextInt(10)+1;
                 listEasyIntegers.add(num2);
                 System.out.print(" " + num2 + " " + "=");
                 if (rnChar == 0){
@@ -87,16 +87,18 @@ public class Main {
                 if (rnChar == 3){
                     result = num1 / num2;
                 }
+
                 while(check4){
                     try {
                         answer = sc.nextInt();
                         check4 = false;
                     }catch (InputMismatchException e) {
                         System.out.println("It must be number!");
-                        check4 = true;
+                        // check4 = true;
                         sc.nextLine();
                     }
                 }
+                check4 = true;
                 System.out.println(" "+result);
                 System.out.println();
             }
