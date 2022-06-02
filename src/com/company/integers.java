@@ -19,6 +19,6 @@ public class integers {
             }
         }
         public int getResult() {
-        return result;
+            return result;
         }
 }
