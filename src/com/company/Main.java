@@ -9,7 +9,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Random rn = new Random();
 
-
+        System.out.println("Welcome to the examination program!");
+        System.out.println("Rules : 1) When");
 
         int amountOfExamples = 0;
         String typeChoose = null;
@@ -55,6 +56,9 @@ public class Main {
                 sc.nextLine();
             }
         }
+        if (amountOfExamples == 0){
+            System.out.println();
+        }
         System.out.println("You choosed variant " + typeChoose + " here are your exams :");
 
         ArrayList<String> listChar = new ArrayList<>();
@@ -68,7 +72,7 @@ public class Main {
         int answerA = 0;
         int resultB = 0;
         int answerB = 0;
-        int points = amountOfExamples;
+        int points = 0;
 
         if (typeChoose.equals(a)) {
             for (int i = 0; i < amountOfExamples; i++) {
@@ -86,6 +90,7 @@ public class Main {
                         answerA = sc.nextInt();
                         if( resultA == answerA){
                             check4 = false;
+                            points++;
                         }
                         else {
                             throw new InterruptedException();
@@ -97,13 +102,13 @@ public class Main {
                     }catch (InterruptedException e) {
                         System.out.println("Wrong answer, try again :");
                         //sc.nextLine();
-                        points = amountOfExamples-1;
+                        points--;
                     }
                 }
                 check4 = true;
                 System.out.println();
-                //System.out.println(points);
             }
+            System.out.println("You have completed the examination with : " + points + " !");
         }
 
         if (typeChoose.equals(b)) {
@@ -123,6 +128,7 @@ public class Main {
                         answerB = sc.nextInt();
                         if (resultB == answerB) {
                             check5 = false;
+                            points++;
                         } else {
                             throw new InterruptedException();
                         }
@@ -132,16 +138,28 @@ public class Main {
                     } catch (InterruptedException e) {
                         System.out.println("Wrong answer, try again :");
                         //sc.nextLine();
-                        points = amountOfExamples-1;
+                        points--;
                     }
                 }
                 check5 = true;
                 System.out.println();
-                //System.out.println(points);
+
             }
+            System.out.println(points);
         }
+        ArrayList<String> listOfSystems = new ArrayList<>();
+        listOfSystems.add("Decimal");
+        listOfSystems.add("Binary");
+        listOfSystems.add("Hexadecimal");
+
         if (typeChoose.equals(c)){
             for (int k = 0; k<amountOfExamples; k++){
+                int number1 = rn.nextInt(30);
+                int rnSystem1 = rn.nextInt(3);
+                System.out.println(listOfSystems.get(rnSystem1));
+                int rnSystem2 = rn.nextInt(3);
+                System.out.println(listOfSystems.get(rnSystem2));
+                System.out.println("From :" + rnSystem1 + " To :" + rnSystem2);
 
             }
         }
