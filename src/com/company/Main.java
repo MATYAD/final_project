@@ -21,6 +21,7 @@ public class Main {
         boolean check3 = true;
         boolean check4 = true;
         boolean check5 = true;
+        boolean check6 = true;
 
         String a = "a";
         String b = "b";
@@ -72,6 +73,8 @@ public class Main {
         int answerA = 0;
         int resultB = 0;
         int answerB = 0;
+        String resultC;
+        String answerC;
         int points = 0;
 
         if (typeChoose.equals(a)) {
@@ -90,6 +93,7 @@ public class Main {
                         answerA = sc.nextInt();
                         if( resultA == answerA){
                             check4 = false;
+                            System.out.print("✔");
                             points++;
                         }
                         else {
@@ -100,7 +104,7 @@ public class Main {
                         //check4 = true;
                         sc.nextLine();
                     }catch (InterruptedException e) {
-                        System.out.println("Wrong answer, try again :");
+                        System.out.println("❌ try again :");
                         //sc.nextLine();
                         points--;
                     }
@@ -128,6 +132,7 @@ public class Main {
                         answerB = sc.nextInt();
                         if (resultB == answerB) {
                             check5 = false;
+                            System.out.print("✔");
                             points++;
                         } else {
                             throw new InterruptedException();
@@ -136,7 +141,7 @@ public class Main {
                         System.out.println("It must be number!");
                         sc.nextLine();
                     } catch (InterruptedException e) {
-                        System.out.println("Wrong answer, try again :");
+                        System.out.println("❌ try again :");
                         //sc.nextLine();
                         points--;
                     }
@@ -147,19 +152,59 @@ public class Main {
             }
             System.out.println(points);
         }
-        ArrayList<String> listOfSystems = new ArrayList<>();
-        listOfSystems.add("Decimal");
-        listOfSystems.add("Binary");
-        listOfSystems.add("Hexadecimal");
 
         if (typeChoose.equals(c)){
             for (int k = 0; k<amountOfExamples; k++){
-                int number1 = rn.nextInt(30);
-                int rnSystem1 = rn.nextInt(3);
-                System.out.println(listOfSystems.get(rnSystem1));
-                int rnSystem2 = rn.nextInt(3);
-                System.out.println(listOfSystems.get(rnSystem2));
-                System.out.println("From :" + rnSystem1 + " To :" + rnSystem2);
+
+                int rnSystem = rn.nextInt(4);
+
+                if (rnSystem == 0){
+                   int rnDecimal = rn.nextInt(100)+1;
+                   System.out.println("Convert this number → " + rnDecimal + " to binary number :");
+                   resultC = Integer.toBinaryString(rnDecimal);
+                   //System.out.println(resultC);
+                   while (check6){
+                        try {
+                            answerC = sc.next();
+                            if (resultC.equals(answerC)){
+                                check6 = false;
+                                System.out.println("✔");
+                                points++;
+                            }else {
+                                throw new InterruptedException();
+                            }
+                        }catch (InterruptedException e) {
+                            System.out.println("❌ try again :");
+                            points--;
+                        }
+                   }
+                   check6 = true;
+                }
+                if (rnSystem == 1){
+                    int rnDecimal = rn.nextInt(100);
+                    System.out.println("Convert this number → " + rnDecimal +  " to hexadecimal number :");
+                    resultC = Integer.toHexString(rnDecimal);
+                    while (check6) {
+                        try {
+                            answerC = sc.next();
+                            if (resultC.equals(answerC)){
+                                check6 = false;
+                                System.out.println("✔");
+                                points++;
+                            }else {
+                                throw new InterruptedException();
+                            }
+                        }catch (InterruptedException e){
+                            System.out.println("❌ try again :");
+                            points--;
+                        }
+                    }
+                    check6 = true;
+                }
+                if (rnSystem == 2){
+                    int rnBinary = rn.nextInt(1);
+                    System.out.println();
+                }
 
             }
         }

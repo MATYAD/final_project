@@ -19,6 +19,7 @@ public class integers {
             }
         }
         public int getResult() {
+
             return result;
         }
 }
