@@ -10,7 +10,8 @@ public class Main {
         Random rn = new Random();
 
         System.out.println("Welcome to the examination program!");
-        System.out.println("Rules : 1) When");
+        System.out.println("There is only one rule : ROUND ALWAYS DOWN");
+        System.out.println("GLHF");
 
         int amountOfExamples = 0;
         String typeChoose = null;
@@ -58,7 +59,8 @@ public class Main {
             }
         }
         if (amountOfExamples == 0){
-            System.out.println();
+            System.out.println("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+            System.exit(0);
         }
         System.out.println("You choosed variant " + typeChoose + " here are your exams :");
 
@@ -93,7 +95,7 @@ public class Main {
                         answerA = sc.nextInt();
                         if( resultA == answerA){
                             check4 = false;
-                            System.out.print("✔");
+                            System.out.println("✔");
                             points++;
                         }
                         else {
@@ -104,15 +106,15 @@ public class Main {
                         //check4 = true;
                         sc.nextLine();
                     }catch (InterruptedException e) {
-                        System.out.println("❌ try again :");
                         //sc.nextLine();
+                        System.out.println("❌ try again :");
                         points--;
                     }
                 }
                 check4 = true;
                 System.out.println();
             }
-            System.out.println("You have completed the examination with : " + points + " !");
+            System.out.println("You have completed the examination with : " + points + " points !");
         }
 
         if (typeChoose.equals(b)) {
@@ -132,7 +134,7 @@ public class Main {
                         answerB = sc.nextInt();
                         if (resultB == answerB) {
                             check5 = false;
-                            System.out.print("✔");
+                            System.out.println("✔");
                             points++;
                         } else {
                             throw new InterruptedException();
@@ -141,29 +143,26 @@ public class Main {
                         System.out.println("It must be number!");
                         sc.nextLine();
                     } catch (InterruptedException e) {
-                        System.out.println("❌ try again :");
                         //sc.nextLine();
+                        System.out.println("❌ try again :");
                         points--;
                     }
                 }
                 check5 = true;
                 System.out.println();
-
             }
-            System.out.println(points);
+            System.out.println("You have completed the examination with : " + points + " points !");
         }
 
         if (typeChoose.equals(c)){
             for (int k = 0; k<amountOfExamples; k++){
-
                 int rnSystem = rn.nextInt(4);
-
                 if (rnSystem == 0){
-                   int rnDecimal = rn.nextInt(100)+1;
-                   System.out.println("Convert this number → " + rnDecimal + " to binary number :");
-                   resultC = Integer.toBinaryString(rnDecimal);
-                   //System.out.println(resultC);
-                   while (check6){
+                    int rnDecimal = rn.nextInt(100)+1;
+                    System.out.println("Convert this number → " + rnDecimal + " to binary number :");
+                    resultC = Integer.toBinaryString(rnDecimal);
+                    //System.out.println(resultC);
+                    while (check6){
                         try {
                             answerC = sc.next();
                             if (resultC.equals(answerC)){
@@ -177,11 +176,11 @@ public class Main {
                             System.out.println("❌ try again :");
                             points--;
                         }
-                   }
-                   check6 = true;
+                    }
+                    check6 = true;
                 }
                 if (rnSystem == 1){
-                    int rnDecimal = rn.nextInt(100);
+                    int rnDecimal = rn.nextInt(100)+1;
                     System.out.println("Convert this number → " + rnDecimal +  " to hexadecimal number :");
                     resultC = Integer.toHexString(rnDecimal);
                     while (check6) {
@@ -202,11 +201,55 @@ public class Main {
                     check6 = true;
                 }
                 if (rnSystem == 2){
-                    int rnBinary = rn.nextInt(1);
-                    System.out.println();
+                    int rnDecimal = rn.nextInt(100)+1;
+                    String rnBinary = Integer.toBinaryString(rnDecimal);
+                    System.out.println("Convert this number → " + rnBinary +  " to decimal number :");
+                    while (check6) {
+                        try {
+                            int intAnswerC = sc.nextInt();
+                            if (rnDecimal == intAnswerC){
+                                check6 = false;
+                                System.out.println("✔");
+                                points++;
+                            }else {
+                                throw new InterruptedException();
+                            }
+                        }catch (InputMismatchException e){
+                            System.out.println("It must be number!");
+                            sc.nextLine();
+                        } catch (InterruptedException e) {
+                            System.out.println("❌ try again :");
+                            points--;
+                        }
+                    }
+                    check6 = true;
                 }
-
+                if (rnSystem == 3){
+                    int rnDecimal = rn.nextInt(100)+1;
+                    String rnHexadecimal = Integer.toHexString(rnDecimal);
+                    System.out.println("Convert this number → " + rnHexadecimal +  " to decimal number :");
+                    while (check6) {
+                        try {
+                            int intAnswerC = sc.nextInt();
+                            if (rnDecimal == intAnswerC){
+                                check6 = false;
+                                System.out.println("✔");
+                                points++;
+                            }else {
+                                throw new InterruptedException();
+                            }
+                        }catch (InputMismatchException e){
+                            System.out.println("It must be number!");
+                            sc.nextLine();
+                        }catch (InterruptedException e) {
+                            System.out.println("❌ try again :");
+                            points--;
+                        }
+                    }
+                    check6 = true;
+                }
             }
+            System.out.println("You have completed the examination with : " + points + " points !");
         }
     }
 }
