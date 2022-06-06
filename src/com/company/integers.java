@@ -4,7 +4,7 @@ public class integers {
 
     private String question;
     private int result;
-        public integers(int n1, String op, int n2) {
+        public integers(int n1, String op, int n2) { //vytvoreni konstruktoru
             if (op.equals("+")){
                 result = n1 + n2;
             }

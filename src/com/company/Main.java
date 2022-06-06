@@ -6,8 +6,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-        Random rn = new Random();
+        Scanner sc = new Scanner(System.in); //vytvoreni skeneru
+        Random rn = new Random(); //vytvoreni randomu
 
         System.out.println("Welcome to the examination program!");
         System.out.println("There is only one rule : ROUND ALWAYS DOWN");
@@ -28,7 +28,7 @@ public class Main {
         String b = "b";
         String c = "c";
 
-        while (check1) {
+        while (check1) { //opatreni proti nevhodne odpovedi
             System.out.println("""
                     Choose type of exam by pressing a,b or c:
                      a) Addition, Subtraction, Multiplication, Division of integers
@@ -47,7 +47,7 @@ public class Main {
             }
         }
 
-        while (check2) {
+        while (check2) { //opatreni proti nevhodne odpovedi
             try {
                 System.out.println("How many examples do you want?");
                 amountOfExamples = sc.nextInt();
@@ -60,11 +60,11 @@ public class Main {
         }
         if (amountOfExamples == 0){
             System.out.println("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
-            System.exit(0);
+            System.exit(0); //ukonceni programu
         }
         System.out.println("You choosed variant " + typeChoose + " here are your exams :");
 
-        ArrayList<String> listChar = new ArrayList<>();
+        ArrayList<String> listChar = new ArrayList<>(); //vlozeni znamenek
         listChar.add("+");
         listChar.add("-");
         listChar.add("*");
@@ -79,24 +79,24 @@ public class Main {
         String answerC;
         int points = 0;
 
-        if (typeChoose.equals(a)) {
+        if (typeChoose.equals(a)) { //urceni jaka cast programu se spusti
             for (int i = 0; i < amountOfExamples; i++) {
-                int num1 = rn.nextInt(100);
+                int num1 = rn.nextInt(100); //generovani cisla
                 System.out.print(num1 + " ");
                 int num2 = rn.nextInt(10)+1;
-                String[] ops = {"+","-","/","x"};
+                String[] ops = {"+","-","/","*"};
                 rnChar = rn.nextInt(4);
                 System.out.print(listChar.get(rnChar));
                 integers in = new integers(num1, listChar.get(rnChar), num2 );
                 System.out.print(" " + num2 + " " + "=");
                 resultA = in.getResult();
-                while (check4){
+                while (check4){ //zadani odpovedi
                     try {
                         answerA = sc.nextInt();
                         if( resultA == answerA){
                             check4 = false;
                             System.out.println("✔");
-                            points++;
+                            points++; //pricteni bodu
                         }
                         else {
                             throw new InterruptedException();
@@ -111,13 +111,13 @@ public class Main {
                         points--;
                     }
                 }
-                check4 = true;
+                check4 = true; //vraceni hddnoty na true abu program neskoncil
                 System.out.println();
             }
             System.out.println("You have completed the examination with : " + points + " points !");
         }
 
-        if (typeChoose.equals(b)) {
+        if (typeChoose.equals(b)) { //urceni jaka cast programu se spusti
             for (int j = 0; j < amountOfExamples; j++) {
                 int numerator1 = rn.nextInt(30);
                 int denominator1 = rn.nextInt(10)+1;
@@ -154,13 +154,13 @@ public class Main {
             System.out.println("You have completed the examination with : " + points + " points !");
         }
 
-        if (typeChoose.equals(c)){
+        if (typeChoose.equals(c)){ //urceni jaka cast programu se spusti
             for (int k = 0; k<amountOfExamples; k++){
                 int rnSystem = rn.nextInt(4);
                 if (rnSystem == 0){
                     int rnDecimal = rn.nextInt(100)+1;
                     System.out.println("Convert this number → " + rnDecimal + " to binary number :");
-                    resultC = Integer.toBinaryString(rnDecimal);
+                    resultC = Integer.toBinaryString(rnDecimal); //motada na prevod
                     //System.out.println(resultC);
                     while (check6){
                         try {
@@ -182,7 +182,7 @@ public class Main {
                 if (rnSystem == 1){
                     int rnDecimal = rn.nextInt(100)+1;
                     System.out.println("Convert this number → " + rnDecimal +  " to hexadecimal number :");
-                    resultC = Integer.toHexString(rnDecimal);
+                    resultC = Integer.toHexString(rnDecimal); //metoda na prevod
                     while (check6) {
                         try {
                             answerC = sc.next();
