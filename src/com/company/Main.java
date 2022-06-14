@@ -58,7 +58,7 @@ public class Main {
                 sc.nextLine();
             }
         }
-        if (amountOfExamples == 0){
+        if (amountOfExamples <= 0){
             System.out.println("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
             System.exit(0); //ukonceni programu
         }
@@ -112,7 +112,6 @@ public class Main {
                     }
                 }
                 check4 = true; //vraceni hddnoty na true abu program neskoncil
-                System.out.println();
             }
             System.out.println("You have completed the examination with : " + points + " points !");
         }
